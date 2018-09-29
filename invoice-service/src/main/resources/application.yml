@@ -22,6 +22,13 @@ mapper:
 logging:
   path: '${user.home}/logs/${spring.application.name}'
 
+security:
+  basic:
+    enabled: true
+  user:
+    name: makelife
+    password: makelife!qaz
+
 
 
 

@@ -24,6 +24,12 @@ public class TestController {
 
     @GetMapping(value = "getT")
     public String test(){
-        return invoiceApi.getName() + "  "+activityApi.getA();
+        return "  "+activityApi.query();
+//        return invoiceApi.getName() + "  "+activityApi.query();
+    }
+
+    @GetMapping(value = "getS")
+    public String testS(){
+        return "安全测试";
     }
 }
