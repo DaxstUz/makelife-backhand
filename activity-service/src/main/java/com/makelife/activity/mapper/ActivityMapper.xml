@@ -1,0 +1,41 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >-->
+<!--<mapper namespace="com.makelife.activity.mapper.ActivityMapper">-->
+	<!--&lt;!&ndash;<resultMap id="department" type="com.ieyecloud.ihospital.hospital.domain.HospitalDepartment">&ndash;&gt;-->
+		<!--&lt;!&ndash;<id column="id" property="id" jdbcType="BIGINT" />&ndash;&gt;-->
+		<!--&lt;!&ndash;<result column="hospital_id" property="hospitalId" jdbcType="BIGINT" />&ndash;&gt;-->
+		<!--&lt;!&ndash;<result column="name" property="name" jdbcType="VARCHAR" />&ndash;&gt;-->
+		<!--&lt;!&ndash;<result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />&ndash;&gt;-->
+		<!--&lt;!&ndash;<result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP" />&ndash;&gt;-->
+		<!--&lt;!&ndash;<result column="parent_id" property="parentId" jdbcType="BIGINT" />&ndash;&gt;-->
+		<!--&lt;!&ndash;<result column="weight" property="weight" jdbcType="INTEGER" />&ndash;&gt;-->
+		<!--&lt;!&ndash;<result column="extra" property="extra" jdbcType="OTHER" typeHandler="com.ieyecloud.utils.mybatis.typehandlers.JsonbTypeHandler"/>&ndash;&gt;-->
+		<!--&lt;!&ndash;<result column="show" property="show" jdbcType="BOOLEAN" />&ndash;&gt;-->
+	<!--&lt;!&ndash;</resultMap>&ndash;&gt;-->
+	<!---->
+	<!--&lt;!&ndash;<select id="getByEmployeeId" resultMap="department" parameterType="java.lang.Long">&ndash;&gt;-->
+		<!--&lt;!&ndash;SELECT hospital_employee_2_department.department_id id,hospital_department.hospital_id,hospital_department.name,&ndash;&gt;-->
+		<!--&lt;!&ndash;hospital_department.created_at,hospital_department.updated_at,hospital_department.parent_id,hospital_department.weight,&ndash;&gt;-->
+		<!--&lt;!&ndash;hospital_department.extra,hospital_department.show&ndash;&gt;-->
+		<!--&lt;!&ndash;FROM hospital_employee_2_department&ndash;&gt;-->
+		<!--&lt;!&ndash;LEFT JOIN hospital_department&ndash;&gt;-->
+		<!--&lt;!&ndash;ON hospital_employee_2_department.department_id=hospital_department.id&ndash;&gt;-->
+		<!--&lt;!&ndash;WHERE hospital_employee_2_department.employee_id=#{employeeId}&ndash;&gt;-->
+		<!--&lt;!&ndash;AND hospital_department.show=true&ndash;&gt;-->
+	<!--&lt;!&ndash;</select>&ndash;&gt;-->
+
+	<!--&lt;!&ndash;<update id="updateToShow" parameterType="java.lang.Long">&ndash;&gt;-->
+		<!--&lt;!&ndash;UPDATE hospital_department SET show=true WHERE id IN&ndash;&gt;-->
+		<!--&lt;!&ndash;<foreach collection="departmentIds" item="departmentId" open="(" close=")" separator=",">&ndash;&gt;-->
+			<!--&lt;!&ndash;#{departmentId}&ndash;&gt;-->
+		<!--&lt;!&ndash;</foreach>&ndash;&gt;-->
+	<!--&lt;!&ndash;</update>&ndash;&gt;-->
+
+	<!--&lt;!&ndash;<update id="updateToNotShow" parameterType="java.lang.Long">&ndash;&gt;-->
+		<!--&lt;!&ndash;UPDATE hospital_department SET show=false WHERE id IN&ndash;&gt;-->
+		<!--&lt;!&ndash;<foreach collection="departmentIds" item="departmentId" open="(" close=")" separator=",">&ndash;&gt;-->
+			<!--&lt;!&ndash;#{departmentId}&ndash;&gt;-->
+		<!--&lt;!&ndash;</foreach>&ndash;&gt;-->
+	<!--&lt;!&ndash;</update>&ndash;&gt;-->
+	<!---->
+<!--</mapper>-->
