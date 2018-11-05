@@ -1,11 +1,6 @@
 spring:
   profiles:
     active: dev
-  application:
-    name: user-service
-  jackson:
-    date-format: yyyy-MM-dd HH:mm:ss
-    time-zone: GMT+8
 
 server:
   port: 8081
@@ -18,9 +13,6 @@ mapper:
   mappers: com.makelife.utils.data.TkMapper
   not-empty: false
   identity: postgresql
-
-logging:
-  path: '${user.home}/logs/${spring.application.name}'
 
 security:
   basic:

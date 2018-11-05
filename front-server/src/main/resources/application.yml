@@ -6,16 +6,25 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
+  redis:
+    url: redis://127.0.0.1:6379
 
 server:
   port: 8088
 
-logging:
-  path: '${user.home}/logs/${spring.application.name}'
-
 security:
-#  basic:
-#    enabled: true
+  basic: # 启用基本身份认证
+    enabled: true
   user:
     name: makelife
     password: makelife!qaz
+
+  oauth2:
+    resource:
+      id: front-server
+#      filter-order: 3
+
+# 去掉springboot-actuator 鉴权
+management:
+  security:
+    enabled: false

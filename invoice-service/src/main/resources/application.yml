@@ -19,9 +19,6 @@ mapper:
   not-empty: false
   identity: postgresql
 
-logging:
-  path: '${user.home}/logs/${spring.application.name}'
-
 security:
   basic:
     enabled: true
