@@ -7,7 +7,33 @@
 spring:
   application:
     name: makelife-gateway
+  cloud:
+    gateway:
+      routes:
+      - id: invoice-service-api
+        uri: lb://invoice-service
+        predicates:
+        - Path=/invoice/**
+#        - Method=GET
+
+      - id: activity-service-api
+        uri: lb://activity-service
+        predicates:
+        - Path=/activity/**
+
 
 logging:
-#  config: classpath:logback-spring.xml
+  config: classpath:logback-spring.xml
   path: '${user.home}/logs/${spring.application.name}'
+
+# 去掉springboot-actuator 鉴权
+#management:
+#  security:
+#    enabled: false
+
+#开启actuator管理api，后面要关闭
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
