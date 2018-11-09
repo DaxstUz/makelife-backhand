@@ -1,0 +1,26 @@
+
+server:
+  port: 5002
+
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: invoice-service
+        uri: lb://invoice-service
+        predicates:
+        - Path=/invoice-service/**
+
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka/
+
+# 去掉springboot-actuator 鉴权
+#management:
+#  security:
+#    enabled: false
+
