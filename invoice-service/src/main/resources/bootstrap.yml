@@ -2,3 +2,8 @@
 logging:
   config: classpath:logback-spring.xml
   path: '${user.home}/logs/${spring.application.name}'
+
+# 去掉springboot-actuator 鉴权
+management:
+  security:
+    enabled: false

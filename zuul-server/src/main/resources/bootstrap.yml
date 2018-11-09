@@ -1,0 +1,23 @@
+
+
+#注册端口号
+server:
+  port: 9901
+
+spring:
+  application:
+    name: zuul-server
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  redis:
+    url: redis://127.0.0.1:6379
+
+logging:
+  config: classpath:logback-spring.xml
+  path: '${user.home}/logs/${spring.application.name}'
+
+# 去掉springboot-actuator 鉴权
+management:
+  security:
+    enabled: false

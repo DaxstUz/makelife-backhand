@@ -14,7 +14,7 @@ server:
 
 security:
   basic: # 启用基本身份认证
-    enabled: true
+    enabled: false
   user:
     name: makelife
     password: makelife!qaz

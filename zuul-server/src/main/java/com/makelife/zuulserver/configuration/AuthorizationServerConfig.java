@@ -1,28 +1,18 @@
-package com.makelife.server.configuration;
+package com.makelife.zuulserver.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.authentication.CachingUserDetailsService;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
-import org.springframework.security.oauth2.provider.OAuth2Authentication;
-import org.springframework.security.oauth2.provider.token.AuthenticationKeyGenerator;
-import org.springframework.security.oauth2.provider.token.DefaultAuthenticationKeyGenerator;
 import org.springframework.security.oauth2.provider.token.TokenStore;
-import org.springframework.security.oauth2.provider.token.store.redis.JdkSerializationStrategy;
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 /**
  * @author sunyz
@@ -46,8 +36,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     static final int ACCESS_TOKEN_VALIDITY_SECONDS = 1*60*60;
     static final int FREFRESH_TOKEN_VALIDITY_SECONDS = 6*60*60;
 
-//    @Autowired
-//    private TokenStore tokenStore; //存内存
+    @Autowired
+    private TokenStore tokenStore; //存内存
 
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -64,7 +54,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         configurer
                 .inMemory()
                 .withClient(CLIEN_ID)
-                .resourceIds("front-server")
+                .resourceIds("zuul-server")
                 .authorities("client")
                 .secret(CLIENT_SECRET)
                 .authorizedGrantTypes(GRANT_TYPE_PASSWORD, AUTHORIZATION_CODE, REFRESH_TOKEN, IMPLICIT,CLIENT_CREDENTIALS )
@@ -82,9 +72,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-//        endpoints.tokenStore(tokenStore)
+        endpoints.tokenStore(tokenStore)
         //todo 这里额外指定了/oauth/token的password模式要使用的userDetailsService
-        endpoints.tokenStore(tokenStore())
+//        endpoints.tokenStore(tokenStore())
                 .authenticationManager(authenticationManager);
 //        endpoints.userDetailsService(new InMemoryUserDetailsManager());
 //        endpoints.userDetailsService(new CachingUserDetailsService());

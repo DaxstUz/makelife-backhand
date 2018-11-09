@@ -19,12 +19,12 @@ mapper:
   not-empty: false
   identity: postgresql
 
-security:
-  basic:
-    enabled: true
-  user:
-    name: makelife
-    password: makelife!qaz
+#security:
+#  basic:
+#    enabled: true
+#  user:
+#    name: makelife
+#    password: makelife!qaz
 
 
 

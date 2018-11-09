@@ -1,4 +1,9 @@
 
+# 去掉springboot-actuator 鉴权
+management:
+  security:
+    enabled: false
+
 spring:
   application:
     name: user-service
