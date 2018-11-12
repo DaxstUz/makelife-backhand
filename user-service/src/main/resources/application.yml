@@ -1,25 +1,13 @@
-spring:
-  profiles:
-    active: dev
 
 server:
   port: 8081
 
-mybatis:
-  mapper-locations: classpath:mapper/*.xml #Mapper的xml文件
-  type-aliases-package: com.makelife.*.domain #实体类的包
-
-mapper:
-  mappers: com.makelife.utils.data.TkMapper
-  not-empty: false
-  identity: postgresql
-
-security:
-  basic:
-    enabled: true
-  user:
-    name: makelife
-    password: makelife!qaz
+#security:
+#  basic:
+#    enabled: true
+#  user:
+#    name: makelife
+#    password: makelife!qaz
 
 
 

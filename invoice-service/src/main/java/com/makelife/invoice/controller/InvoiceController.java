@@ -1,6 +1,7 @@
 package com.makelife.invoice.controller;
 
 import com.makelife.api.invoice.InvoiceClient;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -11,8 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class InvoiceController implements InvoiceClient {
 
+    @Value("${yy:pool}")
+    private String name;
+
     @Override
     public String getName() {
-        return "daxstuz 哈哈哈";
+        return "daxstuz 哈哈哈" + name;
     }
 }

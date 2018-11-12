@@ -1,0 +1,14 @@
+#spring:
+#  datasource:
+#    driver-class-name: org.postgresql.Driver
+#    password: sunyouzhi
+#    url: jdbc:postgresql://127.0.0.1:5432/makelife?charSet=UTF-8
+#    username: sunyouzhi
+#
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://127.0.0.1:8761/eureka/
+#  instance:
+#    prefer-ip-address: true
+#    instanceId: ${spring.application.name}:${random.value}

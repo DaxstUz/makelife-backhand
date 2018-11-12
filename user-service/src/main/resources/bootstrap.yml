@@ -1,15 +1,21 @@
-
-# 去掉springboot-actuator 鉴权
-management:
-  security:
-    enabled: false
+#
+## 去掉springboot-actuator 鉴权
+#management:
+#  security:
+#    enabled: false
 
 spring:
   application:
     name: user-service
-  jackson:
-      date-format: yyyy-MM-dd HH:mm:ss
-      time-zone: GMT+8
+  cloud:
+    config:
+      discovery:
+        service-id: config-server
+      profile: dev
+      uri: http://localhost:9988
+      enabled: true
+      label: master
+      name: ${spring.application.name},pool
 
 logging:
   config: classpath:logback-spring.xml

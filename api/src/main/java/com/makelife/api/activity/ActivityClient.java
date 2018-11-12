@@ -1,7 +1,7 @@
 package com.makelife.api.activity;
 
 import com.makelife.api.activity.dto.ActivityDto;
-import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;

@@ -1,4 +1,14 @@
 
+spring:
+  cloud:
+    config:
+      discovery:
+        service-id: config-server
+      uri: http://localhost:9988
+      enabled: true
+      label: master
+      name: ${spring.application.name}
+
 logging:
   config: classpath:logback-spring.xml
   path: '${user.home}/logs/${spring.application.name}'

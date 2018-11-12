@@ -1,8 +1,15 @@
-
-# 去掉springboot-actuator 鉴权
-management:
-  security:
-    enabled: false
+spring:
+  application:
+    name: activity-service
+  cloud:
+    config:
+      discovery:
+        service-id: config-server
+      profile: dev
+      uri: http://localhost:9988
+      enabled: true
+      label: master
+      name: ${spring.application.name}
 
 logging:
   config: classpath:logback-spring.xml

@@ -1,9 +1,17 @@
 
+spring:
+  application:
+    name: invoice-service
+  cloud:
+    config:
+      discovery:
+        service-id: config-server
+      profile: test
+      uri: http://localhost:9988
+      enabled: true
+      label: master
+      name: ${spring.application.name},pool
+
 logging:
   config: classpath:logback-spring.xml
   path: '${user.home}/logs/${spring.application.name}'
-
-# 去掉springboot-actuator 鉴权
-management:
-  security:
-    enabled: false
